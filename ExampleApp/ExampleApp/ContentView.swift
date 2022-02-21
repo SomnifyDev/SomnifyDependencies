@@ -13,7 +13,8 @@ struct ContentView: View {
         Text("Hello, world!")
             .padding()
             .onAppear {
-                Logger.logEvent("Text appeared.", type: .message)
+                Logger.logEvent("Text appeared.", type: .info)
+                Logger.logEvent("Text appeared.", type: .success)
                 Logger.logEvent("Text appeared.", type: .warning)
                 Logger.logEvent("Text appeared.", type: .error)
             }

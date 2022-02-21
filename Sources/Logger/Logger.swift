@@ -4,6 +4,7 @@ import Foundation
 
 public enum LogType {
     case info
+    case success
     case warning
     case error
 }
@@ -23,7 +24,9 @@ public final class Logger {
     ) {
         switch type {
         case .info:
-            logMessage(message, file: file, function: function, line: line)
+            logInfo(message, file: file, function: function, line: line)
+        case .success:
+            logSuccess(message, file: file, function: function, line: line)
         case .warning:
             logWarning(message, file: file, function: function, line: line)
         case .error:
@@ -33,13 +36,22 @@ public final class Logger {
 
     // MARK: - Private methods
 
-    private static func logMessage(
+    private static func logInfo(
         _ message: String,
         file: StaticString,
         function: StaticString,
         line: UInt
     ) {
-        print("\n🟢 LOGGING INFO.\nLog message: \(message)\nAt file: \(file)\nIn function: \(function).\nAt line: \(line).\nLog time: \(Date()).\n")
+        print("\n⚪️ LOGGING INFO\nLog message: \(message)\nAt file: \(file)\nIn function: \(function).\nAt line: \(line).\nLog time: \(Date()).\n")
+    }
+
+    private static func logSuccess(
+        _ message: String,
+        file: StaticString,
+        function: StaticString,
+        line: UInt
+    ) {
+        print("\n🟢 LOGGING SUCCESS\nLog message: \(message)\nAt file: \(file)\nIn function: \(function).\nAt line: \(line).\nLog time: \(Date()).\n")
     }
 
     private static func logWarning(
@@ -48,7 +60,7 @@ public final class Logger {
         function: StaticString,
         line: UInt
     ) {
-        print("\n🟡 LOGGING WARNING.\nLog message: \(message)\nAt file: \(file)\nIn function: \(function).\nAt line: \(line).\nLog time: \(Date()).\n")
+        print("\n🟡 LOGGING WARNING\nLog message: \(message)\nAt file: \(file)\nIn function: \(function).\nAt line: \(line).\nLog time: \(Date()).\n")
     }
 
     private static func logError(
@@ -57,7 +69,7 @@ public final class Logger {
         function: StaticString,
         line: UInt
     ) {
-        print("\n🔴 LOGGING ERROR.\nLog message: \(message)\nAt file: \(file)\nIn function: \(function).\nAt line: \(line).\nLog time: \(Date()).\n")
+        print("\n🔴 LOGGING ERROR\nLog message: \(message)\nAt file: \(file)\nIn function: \(function).\nAt line: \(line).\nLog time: \(Date()).\n")
     }
 
 }
