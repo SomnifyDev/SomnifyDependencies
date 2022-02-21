@@ -3,7 +3,7 @@ import Foundation
 // MARK: - Public types
 
 public enum LogType {
-    case message
+    case info
     case warning
     case error
 }
@@ -22,7 +22,7 @@ public final class Logger {
         line: UInt = #line
     ) {
         switch type {
-        case .message:
+        case .info:
             logMessage(message, file: file, function: function, line: line)
         case .warning:
             logWarning(message, file: file, function: function, line: line)
@@ -39,7 +39,7 @@ public final class Logger {
         function: StaticString,
         line: UInt
     ) {
-        print("\n🟢 Logging message.\nAt file: \(file)\nIn function: \(function).\nAt line: \(line).\nLog time: \(Date()).\nLog message: \(message)\n")
+        print("\n🟢 LOGGING INFO.\nLog message: \(message)\nAt file: \(file)\nIn function: \(function).\nAt line: \(line).\nLog time: \(Date()).\n")
     }
 
     private static func logWarning(
@@ -48,7 +48,7 @@ public final class Logger {
         function: StaticString,
         line: UInt
     ) {
-        print("\n🟡 Logging warning.\nAt file: \(file)\nIn function: \(function).\nAt line: \(line).\nLog time: \(Date()).\nLog message: \(message)\n")
+        print("\n🟡 LOGGING WARNING.\nLog message: \(message)\nAt file: \(file)\nIn function: \(function).\nAt line: \(line).\nLog time: \(Date()).\n")
     }
 
     private static func logError(
@@ -57,7 +57,7 @@ public final class Logger {
         function: StaticString,
         line: UInt
     ) {
-        print("\n🔴 Logging error.\nAt file: \(file)\nIn function: \(function).\nAt line: \(line).\nLog time: \(Date()).\nLog message: \(message)\n")
+        print("\n🔴 LOGGING ERROR.\nLog message: \(message)\nAt file: \(file)\nIn function: \(function).\nAt line: \(line).\nLog time: \(Date()).\n")
     }
 
 }
