@@ -1,12 +1,6 @@
-//
-//  ContentView.swift
-//  ExampleApp
-//
-//  Created by Анас Бен Мустафа on 2/21/22.
-//
-
 import SwiftUI
 import Logger
+import CommonExtensions
 
 struct ContentView: View {
     var body: some View {
