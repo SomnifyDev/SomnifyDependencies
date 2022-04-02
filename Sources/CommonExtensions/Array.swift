@@ -1,5 +1,17 @@
 import Foundation
 
+// MARK: - Common
+
+public extension Array {
+
+    static func empty() -> Self {
+        return []
+    }
+
+}
+
+// MARK: - FloatingPoint
+
 public extension Array where Element: FloatingPoint {
 
     func sum() -> Element {
